@@ -24,6 +24,9 @@ System.register(['angular2/core', './mock-heroe'], function(exports_1, context_1
             HeroService = (function () {
                 function HeroService() {
                 }
+                HeroService.prototype.getHero = function (id) {
+                    return Promise.resolve(mock_heroe_1.HEROES).then(function (heroes) { return heroes.filter(function (hero) { return hero.id === id; })[0]; });
+                };
                 HeroService.prototype.getHeroes = function () {
                     return Promise.resolve(mock_heroe_1.HEROES);
                 };
